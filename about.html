@@ -187,7 +187,8 @@ Fire, flavor, and unforgettable moments—your next craving starts here.      </
   </div>
 
   <!-- Footer with Social Links -->
-  <footer>
+  <!-- Footer -->
+<footer>
   <div class="social-links">
     <!-- Instagram -->
     <div class="social-icon">
@@ -208,7 +209,55 @@ Fire, flavor, and unforgettable moments—your next craving starts here.      </
 
   <p>Website by Atelier Jana</p>
   <p>&copy; 2026 Grandpa Joe’s Eatery. All rights reserved.</p>
+
+  <style>
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .social-icon a {
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 5px;
+      transition: 0.3s;
+    }
+
+    .social-icon a:hover {
+      color: #ffd700; /* gold on hover */
+    }
+
+    .social-icon p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .social-links {
+        gap: 25px;
+      }
+      .social-icon i {
+        font-size: 1.5rem; /* scale icons on mobile */
+      }
+      .social-icon p {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
 </footer>
+
 
 
 </body>
