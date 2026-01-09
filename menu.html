@@ -8,14 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
       integrity="sha512-pb1c6eVfRrF5+l6S3+KYbPB5E+V7O4gkJ8VtlM+QxB1VHZqgZFH+3dX0JlXGqslE9k9b1JkDqV6kR3lr6V6K8g==" 
       crossorigin="anonymous" referrerpolicy="no-referrer" />
-footer {
-  padding: 40px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,0.2);
-}
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -33,8 +25,11 @@ footer {
   transition: 0.3s;
 }
 
-.social-links a i {
+.social-links a i,
+.social-links a svg {
   margin-bottom: 5px;
+  width: 36px;
+  height: 36px;
 }
 
 .social-links a:hover {
@@ -49,13 +44,16 @@ footer {
   .social-links {
     gap: 25px;
   }
-  .social-links a i {
-    font-size: 1.5rem;
+  .social-links a i,
+  .social-links a svg {
+    width: 28px;
+    height: 28px;
   }
   .social-links span {
     font-size: 0.75rem;
   }
 }
+
 
   <style>
     /* Body + Full Background */
