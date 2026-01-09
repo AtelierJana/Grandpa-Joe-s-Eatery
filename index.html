@@ -5,16 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grandpa Joe’s Eatery</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-pb1c6eVfRrF5+l6S3+KYbPB5E+V7O4gkJ8VtlM+QxB1VHZqgZFH+3dX0JlXGqslE9k9b1JkDqV6kR3lr6V6K8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
-    /* General Styles */
+    /* General Body */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #0f0f0f;
       color: #f5f5f5;
+      scroll-behavior: smooth;
     }
 
     /* Header */
@@ -29,21 +33,41 @@
       z-index: 100;
       background: rgba(0,0,0,0.6);
       backdrop-filter: blur(10px);
+      box-sizing: border-box;
     }
 
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .right-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Logo */
     .logo {
       height: 60px;
       width: auto;
+      transition: height 0.3s ease;
     }
 
-    .btn-reserve {
+    /* Navigation / Buttons */
+    .btn-menu, .btn-reserve {
       color: #fff;
       text-decoration: none;
       border: 1px solid #fff;
       padding: 10px 20px;
+      font-size: 0.9rem;
+      border-radius: 4px;
       transition: 0.3s;
+      white-space: nowrap;
     }
-    .btn-reserve:hover {
+
+    .btn-menu:hover, .btn-reserve:hover {
       background: #fff;
       color: #000;
     }
@@ -52,14 +76,13 @@
     .hero {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                  url("Rimages/hero.jpg");
-      background-size: cover;
-      background-position: center;
+                  url("Rimages/hero.png") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 0 20px;
+      margin-top: 80px; /* offset for fixed header */
     }
 
     .hero-text h2 {
@@ -76,23 +99,27 @@
       opacity: 0.9;
     }
 
+    /* Section Headings */
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
     /* About Section */
-    section {
+    #about {
       padding: 120px 40px 60px 40px;
       max-width: 1200px;
       margin: auto;
     }
 
-    section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    section p {
+    #about p {
       font-size: 1.1rem;
       line-height: 1.6;
       color: #e0e0e0;
+      text-align: center;
     }
 
     /* Footer */
@@ -100,8 +127,25 @@
       padding: 40px;
       text-align: center;
       font-size: 0.9rem;
-      opacity: 0.6;
+      opacity: 0.8;
       border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .social-links {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 1.5rem; /* icon size */
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd700; /* subtle gold highlight on hover */
     }
 
     /* Mobile Responsive */
@@ -109,14 +153,21 @@
       header {
         padding: 10px 20px;
       }
+      .logo {
+        height: 45px;
+      }
+      .btn-menu, .btn-reserve {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
       .hero-text h2 {
         font-size: 2rem;
       }
       .hero-text p {
         font-size: 1rem;
       }
-      .logo {
-        height: 50px;
+      #about {
+        padding: 80px 20px 40px 20px;
       }
     }
   </style>
@@ -126,10 +177,20 @@
 
   <!-- Header -->
   <header>
-    <a href="index.html">
-      <img src="Rimages/logo.png" alt="Grandpa Joe’s Logo" class="logo">
-    </a>
-    <a href="https://www.opentable.com/" target="_blank" class="btn-reserve">Reserve</a>
+    <!-- Logo + Menu and About buttons on the left -->
+    <div class="left-header">
+      <a href="index.html">
+        <img src="Rimages/logo.png" alt="Grandpa Joe’s Logo" class="logo">
+      </a>
+      <a href="menu.html" class="btn-menu">Menu</a>
+      <a href="about.html" class="btn-menu">About / Info</a>
+    </div>
+
+    <!-- Reserve button on the right -->
+    <div class="right-header">
+      <a href="https://www.opentable.com.au/booking/restref/availability?lang=en-AU&correlationId=4b8bb2a6-4e0d-4c7d-8f49-25c03e6484fb&restRef=301454&otSource=Restaurant%20website"
+         target="_blank" class="btn-reserve">Reserve</a>
+    </div>
   </header>
 
   <!-- Hero Section -->
@@ -141,21 +202,87 @@
   </div>
 
   <!-- About Section -->
-  <section>
+  <section id="about">
     <h3>About Grandpa Joe’s Eatery</h3>
     <p>
-      Grandpa Joe’s Eatery has been serving refined comfort food since 1985.
-      We combine quality ingredients with timeless recipes to create an
-      unforgettable dining experience. Our philosophy is simple: hospitality,
-      care, and flavors that make every meal feel like home.
+      Step into Grandpa Joe’s and let the aromas guide you. From smoky, slow-cooked flavors to bold, unforgettable tastes, every bite is an experience. This is where friends gather, memories are made, and the food tells a story you’ll want to come back to.
     </p>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer with Social Links -->
   <footer>
-    Website by Atelier Jana
+    <div class="social-links">
+      <!-- Instagram -->
+      <div class="social-icon">
+        <a href="https://www.instagram.com/grandpajoeseatery" target="_blank" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="36" height="36" fill="currentColor">
+            <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54.3,54.3,0,0,0-30.45-30.45C293.82,124,224,124,224,124s-69.82,0-94.26,7.19a54.3,54.3,0,0,0-30.45,30.45C92,150.18,92,224,92,224s0,69.82,7.19,94.26a54.3,54.3,0,0,0,30.45,30.45C154.18,356,224,356,224,356s69.82,0,94.26-7.19a54.3,54.3,0,0,0,30.45-30.45C356,293.82,356,224,356,224S356,150.18,348.71,161.66ZM224,338a82,82,0,1,1,82-82A82.09,82.09,0,0,1,224,338Zm85.2-148.8a19.2,19.2,0,1,1,19.2-19.2A19.21,19.21,0,0,1,309.2,189.2Z"/>
+          </svg>
+        </a>
+        <p>Instagram</p>
+      </div>
+
+      <!-- TikTok -->
+      <div class="social-icon">
+        <a href="https://www.tiktok.com/@grandpajoeseatery" target="_blank" aria-label="TikTok">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="36" height="36" fill="currentColor">
+            <path d="M128 0C57.31 0 0 57.31 0 128c0 70.69 57.31 128 128 128 70.69 0 128-57.31 128-128S198.69 0 128 0zm52.53 121.43h-14.2a41.48 41.48 0 0 1-14.6-2.65v40.23a46.09 46.09 0 1 1-46-46V88.88a40.94 40.94 0 0 0 30.12 11.46h.77v52.86a41.45 41.45 0 1 0 41.05-41.05V121.43z"/>
+          </svg>
+        </a>
+        <p>TikTok</p>
+      </div>
+    </div>
+    <p>Website by Atelier Jana</p>
+
+    <style>
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .social-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .social-icon a {
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 5px;
+        transition: 0.3s;
+      }
+
+      .social-icon a:hover {
+        color: #ffd700; /* gold on hover */
+      }
+
+      .social-icon p {
+        margin: 0;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 768px) {
+        .social-links {
+          gap: 25px;
+        }
+        .social-icon svg {
+          width: 28px;
+          height: 28px;
+        }
+        .social-icon p {
+          font-size: 0.75rem;
+        }
+      }
+    </style>
   </footer>
 
 </body>
 </html>
-
